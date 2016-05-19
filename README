@@ -1,0 +1,16 @@
+Source code for our paper:
+
+An T. Nguyen, Byron C. Wallace, and Matthew Lease. A Correlated Worker Model for Grouped, Imbalanced and Multitask Data. In Proceedings of the 32nd International Conference on Uncertainty in Artificial Intelligence (UAI), 2016. 
+
+We are not allowed to release the datasets (RCT and Galaxy Zoo 2) but they should be available on request from their owners.
+
+To run on your data, you will need a crowd_model.label_collection object and pass it to 
+ - crowd_model.tc_model  : to run Two Coin Model (Raykar et. al. 2010)
+ - crowd_model.mv_model  : to run Majority Voting
+ - crowd_model.hc_model  : to run Hybrid Confusion Model (Liu & Wang 2012) (this is the same model as Two Coin except for inference by MCMC, which we implemented by PyMC)
+ - crowd_model.vss_model : to run the correlated sensitivity-specificity model (with variational inference) presented in the paper
+
+
+To run the multitask model: you will need crowd_model.multitask, which is initialized by two vss_model (one for the source task, one for the target task)
+
+See crowd_model.py for more details.
